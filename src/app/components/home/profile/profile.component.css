@@ -17,12 +17,25 @@
     display: flow-root;
     align-items: center;
 }
-.mat-form-field {
+.card2{
+    margin-top: 10px;
+    background-color:#043c70;
+    width: 27%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 1px 10px #181155;
+    opacity: 0.9;
+}
+.mat-form-field{
     display: inline;
     flex-direction: column;
     align-items: flex-start;
     color: black;
-} 
+}
+.mat-option{
+    color: black;
+}
 .mat-raised-button {
     font-size: large;
     color: white;
@@ -32,7 +45,7 @@
 .mat-title{
     font-size: xx-large;
 }
-:host ::ng-deep mat-form-field .mat-form-field-outline-start {
+:host ::ng-deep mat-form-field .mat-form-field-outline-start  {
     background-color: white !important;
 }
 :host ::ng-deep mat-form-field .mat-form-field-outline-gap {

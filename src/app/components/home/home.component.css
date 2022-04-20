@@ -1,0 +1,14 @@
+.fblogo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.images{
+    margin-top: 5%;
+    text-align: center;
+}

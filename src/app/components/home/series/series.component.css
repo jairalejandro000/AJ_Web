@@ -1,21 +1,20 @@
-.card{
-    margin-top: 10px;
-    background-color:#043c70;
-    width: 27%;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 5px 1px 10px #181155;
-    opacity: 0.9;
-}
-.minion1{
-    width: 40%;
-    height: 61%;
-}
 .container{
     justify-content: center;
     display: flow-root;
     align-items: center;
+    width: 70%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mat-row, .mat-header-row, .mat-paginator {   
+    width: 100%;
+}
+.mat-header-cell{
+    size: 5px ;
+}
+.mat-table{
+    margin-top: 10px;
 }
 .mat-form-field {
     display: inline;
@@ -30,7 +29,10 @@
     opacity: 0.9;
 } 
 .mat-title{
-    font-size: xx-large;
+    font-size: 7ch;
+}
+mat-form-field {
+    width: 100%;
 }
 :host ::ng-deep mat-form-field .mat-form-field-outline-start {
     background-color: white !important;
@@ -43,4 +45,7 @@
 }
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: black !important;
+}
+.borrar{
+    margin-left: 10px;
 }

@@ -1,0 +1,62 @@
+<div class="container">
+    <form class="form" [formGroup]="serieForm" style="display: block;" autocomplete="off">
+        <div class="mat-title" style="text-align: center;">Serie</div>
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name"> 
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Temporadas</mat-label>
+            <input matInput formControlName="seasons"> 
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Calificación</mat-label>
+            <input matInput formControlName="score">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Token</mat-label>
+            <input matInput formControlName="token">
+        </mat-form-field>
+        <button mat-raised-button [disabled]="!serieForm.valid" (click)="serie != null ? a() : b()">
+            {{serie != null ?  'Actualizar': 'Guardar'}}
+        </button>
+        <button mat-raised-button class="borrar" [disabled]="!serieForm.valid" (click)="clearForm()">Borrar</button>
+    </form>
+    <div class="mat-table-style">
+        <mat-table class="table" [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Nombre</mat-header-cell>
+                <mat-cell *matCellDef="let serie">
+                {{serie.name}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>descripción</mat-header-cell>
+                <mat-cell *matCellDef="let serie">
+                {{serie.description}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="seasons">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Temporadas</mat-header-cell>
+                <mat-cell *matCellDef="let serie">
+                {{serie.seasons}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef class="cell-title" mat-sort-header>Calificación</mat-header-cell>
+                <mat-cell *matCellDef="let serie">
+                {{serie.score}}
+                </mat-cell>
+            </ng-container>
+            <tr>
+                <mat-header-row *matHeaderRowDef="seriesColumns"></mat-header-row> 
+                <mat-row *matRowDef="let row; columns: seriesColumns" (click)="setForm(row)"></mat-row>
+            </tr>
+        </mat-table>
+        <mat-paginator #seriesPaginator [pageSize]="4" [pageSizeOptions]="[4]"></mat-paginator>
+    </div>
+</div>

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 
-import { AuthRoutingModule } from './auth-routing.module';
-import { LoginComponent } from './login/login.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+import { SeriesComponent } from './series/series.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -39,17 +39,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTreeModule } from '@angular/material/tree';
-import { IIFAComponent } from './iifa/iifa.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    IIFAComponent
+    ProfileComponent,
+    SeriesComponent
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
+    HomeRoutingModule,
+    CommonModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
@@ -89,4 +90,4 @@ import { IIFAComponent } from './iifa/iifa.component';
     MatTreeModule,
   ]
 })
-export class AuthModule { }
+export class HomeModule { }

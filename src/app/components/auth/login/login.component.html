@@ -3,14 +3,14 @@
         <form class="form" [formGroup]="loginForm" style="display: block;" autocomplete="off">
             <div class="mat-title" style="text-align: center;">Login</div>
             <mat-form-field appearance="outline">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="email"> 
+                <mat-label>Email</mat-label>
+                <input matInput maxlength="30" formControlName="email"> 
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput formControlName="password">
+                <input matInput maxlength="20" type="password" formControlName="password">
             </mat-form-field><br>
-            <button mat-raised-button [disabled]="!loginForm.valid" (click)="logIn()">Login</button><br><br>
+            <button mat-raised-button [disabled]="!loginForm.valid" (click)="setUser()">Login</button><br><br>
             <h3><a routerLink="" style="color: white">Create account</a></h3>
         </form>
     </div>
