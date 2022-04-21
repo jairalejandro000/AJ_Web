@@ -70,6 +70,7 @@ export class SeriesComponent implements OnInit {
     //this.serie.token = this.serieForm.get('token').value;*/
   }
   clearForm(): void {
+    this.serie = null;
     this.serieForm.reset();
   }
   buildForm(): void {
