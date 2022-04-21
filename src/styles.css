@@ -1,5 +1,7 @@
 html, body { 
-  height: 90%;
-  background-color: #ffd55e; 
+  height: 0%;
+  background-image: url('./assets/the-batman.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

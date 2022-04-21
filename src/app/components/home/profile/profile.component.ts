@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { successDialog } from 'src/app/functions/alerts';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +19,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
-    private userService: UserService) { 
+    private userService: UserService,
+    private router: Router) { 
     this.buildForm();
   }
 
@@ -28,7 +31,11 @@ export class ProfileComponent implements OnInit {
       this.setFormData(this.user);
     });
   }
-
+  logOut(){
+    this.authService.clearCookies();
+    successDialog('Logout Successful');
+    this.router.navigate(['/auth/login']);
+  }
   buildForm(): void{
     this.profileForm = this.fb.group({
       fullName: [''],
@@ -44,16 +51,13 @@ export class ProfileComponent implements OnInit {
       {'id': '3', 'name': 'Gru'}
     ]
   }
-
   setFormData(user: User): void{
     console.log(user);
     this.profileForm.patchValue(user);
   }
-
   generateToken(): void {
     this.userService.generateToken().subscribe((data) =>{
       this.tokenForm.get('token').setValue(data.token)
     });
   }
-
 }

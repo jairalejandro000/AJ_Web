@@ -39,6 +39,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTreeModule } from '@angular/material/tree';
+import {QRCodeModule } from 'angular2-qrcode';
 import { IIFAComponent } from './iifa/iifa.component';
 
 
@@ -87,6 +88,7 @@ import { IIFAComponent } from './iifa/iifa.component';
     MatTabsModule,
     MatTooltipModule,
     MatTreeModule,
+    QRCodeModule
   ]
 })
 export class AuthModule { }

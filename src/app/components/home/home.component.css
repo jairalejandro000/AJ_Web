@@ -10,5 +10,10 @@ button{
 }
 .images{
     margin-top: 5%;
+    width: 100%;
     text-align: center;
+}
+img{
+    width: 80%;
+    height: auto;
 }

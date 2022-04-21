@@ -1,1 +1,18 @@
-<p>iifa works!</p>
+<div mat-dialog-content>
+    <mat-card class="card">
+        <div class="container">
+            <form class="form" [formGroup]="authForm" style="display: block;" autocomplete="off">
+                <div class="mat-title" style="text-align: center;">Login</div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Code</mat-label>
+                    <input matInput maxlength="10" formControlName="code"> 
+                </mat-form-field><br>
+                <button mat-raised-button (click)="setUser()">Submit</button><br><br>
+            </form>
+        </div>
+    </mat-card>
+</div>
+<qr-code *ngIf="showQr" [value]="qrInfo"></qr-code>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

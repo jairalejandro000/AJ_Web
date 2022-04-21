@@ -1,16 +1,12 @@
 .card{
     margin-top: 10px;
-    background-color:#043c70;
+    background-color:#050505;
     width: 27%;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 5px 1px 10px #181155;
+    box-shadow: 5px 1px 10px #242425;
     opacity: 0.9;
-}
-.minion1{
-    width: 40%;
-    height: 61%;
 }
 .container{
     justify-content: center;
@@ -19,15 +15,21 @@
 }
 .card2{
     margin-top: 10px;
-    background-color:#043c70;
+    background-color:#050505;
     width: 27%;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 5px 1px 10px #181155;
+    box-shadow: 5px 1px 10px #242425;
     opacity: 0.9;
 }
-.mat-form-field{
+.logout{
+    margin-top: 10px;
+    margin-left: 93%;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+}
+.mat-form-field {
     display: inline;
     flex-direction: column;
     align-items: flex-start;
@@ -38,9 +40,8 @@
 }
 .mat-raised-button {
     font-size: large;
-    color: white;
-    background-color: black;
-    opacity: 0.9;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 } 
 .mat-title{
     font-size: xx-large;

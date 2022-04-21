@@ -1,0 +1,30 @@
+<mat-card class="card">
+    <div class="container">
+        <form class="form" [formGroup]="registerForm" style="display: block;" autocomplete="off">
+            <div class="mat-title" style="text-align: center; color:white;">Regsiter</div>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput maxlength="30" formControlName="name"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Lastname</mat-label>
+                <input matInput maxlength="30" formControlName="lastname"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput maxlength="30" formControlName="email"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput maxlength="30" type="password" (change)="checkPassword()" formControlName="password"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm password</mat-label>
+                <input matInput maxlength="20" type="password" (change)="checkPassword()" formControlName="confirmpassword">
+                <mat-error>Password does not match the confirm password</mat-error>
+            </mat-form-field><br>
+            <button mat-raised-button [disabled]="!registerForm.valid" (click)="setUser()">Register</button><br><br>
+            <h3><a routerLink="/auth/login" style="color: white">I am already registered</a></h3> 
+        </form>
+    </div>
+</mat-card>

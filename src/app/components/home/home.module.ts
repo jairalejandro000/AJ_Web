@@ -40,12 +40,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTreeModule } from '@angular/material/tree';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    SeriesComponent
+    SeriesComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

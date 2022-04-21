@@ -1,7 +1,7 @@
 <mat-card class="card">
     <div class="container">
         <form class="form" [formGroup]="loginForm" style="display: block;" autocomplete="off">
-            <div class="mat-title" style="text-align: center;">Login</div>
+            <div class="mat-title" style="text-align: center; color: white;">Login</div>
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput maxlength="30" formControlName="email"> 
@@ -11,8 +11,7 @@
                 <input matInput maxlength="20" type="password" formControlName="password">
             </mat-form-field><br>
             <button mat-raised-button [disabled]="!loginForm.valid" (click)="setUser()">Login</button><br><br>
-            <h3><a routerLink="" style="color: white">Create account</a></h3>
+            <h3><a routerLink="/home/register" style="color: white">Create account</a></h3>
         </form>
     </div>
 </mat-card>
-<img class="minion1" src="./../../../../assets/Minion-panel.png">

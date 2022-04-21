@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { errorMessage, successDialog } from 'src/app/functions/alerts';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { IIFAComponent } from 'src/app/components/auth/iifa/iifa.component';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router) { 
+    private router: Router,
+    private dialog: MatDialog) { 
     this.buildForm();
   }
 
@@ -57,17 +60,25 @@ export class LoginComponent implements OnInit {
     console.log(user);
     this.authService.auth1(user).subscribe((data) => {
       this.response = data;
-      var redirecto = 'home';
+      console.log(this.response);
       if(this.response.token){
         this.authService.storageToken(this.response.token);
+        this.router.navigate(['/home']);
       }
-      if(this.response.rol != 1){
-        redirecto = 'Login/2auth';
+      if(this.response.rol != '1'){
+        this.authService.setUserInfo(this.user);
+        this.dialog.open(IIFAComponent, {
+          width: '700px',
+          data : {
+            'email': this.user.email,
+            'password': this.user.password,
+            'rol': this.response.rol
+          }
+        });
       }
-      successDialog(this.response.message).then(() => {
-        this.router.navigate([`/${redirecto}`]);
-      })
-    }, (error: HttpErrorResponse)=>{
+      successDialog(this.response.message);
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
       errorMessage(error.error.message);
     });
   }
