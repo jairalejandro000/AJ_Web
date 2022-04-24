@@ -36,7 +36,8 @@ export class IIFAComponent implements OnInit {
     }
   }
   puedoPasar(): void {
-    this.chat.emit('message', this.message);
+    this.chat.emit('message', {message: this.message,
+    email: this.user.email});
   }
   setUser(): void{
     this.user.code = this.authForm.get('code').value;
@@ -55,7 +56,8 @@ export class IIFAComponent implements OnInit {
         this.chat = this.ws.subscribe('chat');
         this.puedoPasar();
         this.chat.on('message', (data) => {
-          if(data == 'chi 🥺'){
+          if(data.message == 'chi 🥺' && this.user.email == data.email){
+            this.ws.close();
             this.authService.storageToken(this.response.token);
             this.router.navigate(['/home']);
             this.dialogref.close();

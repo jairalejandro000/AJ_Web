@@ -46,9 +46,9 @@ export class ProfileComponent implements OnInit {
       token: ['']
     });
     this.roles = [
-      {'id': '1', 'name': 'Minion'},
-      {'id': '2', 'name': 'Doc'},
-      {'id': '3', 'name': 'Gru'}
+      {'id': '1', 'name': 'Batman'},
+      {'id': '2', 'name': 'Robin'},
+      {'id': '3', 'name': 'Gordon'}
     ]
   }
   setFormData(user: User): void{
