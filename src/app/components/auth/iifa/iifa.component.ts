@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import Ws from '@adonisjs/websocket-client'; 
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-iifa',
@@ -19,17 +20,23 @@ export class IIFAComponent implements OnInit {
   ws: any;
   chat: any;
   message = 'Puedo pasar? 🥺';
+  ip: string = "hola";
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public user: any,
-    private dialogref: MatDialogRef<IIFAComponent>) { 
+    private dialogref: MatDialogRef<IIFAComponent>,
+    private http: HttpClient) { 
     this.buildForm();
     this.qrInfo = JSON.stringify(this.user);
   }
 
   ngOnInit(): void {
+    this.http.get("http://api.ipify.org/?format=json").subscribe((res: any) => {
+      console.log(res);
+      this.ip = res.ip;
+    });
     console.log(this.user);
     if(this.user.rol == '3'){
       this.showQr = true;
