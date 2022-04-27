@@ -52,16 +52,17 @@ export class SeriesComponent implements OnInit {
     this.serie = serie;
     this.serieForm.patchValue(this.serie);
   }
-  a(): void {
-    this.serie = null;
+  actualizar(): void {
     this.serie.name = this.serieForm.get('name').value;
     this.serie.description = this.serieForm.get('description').value;
     this.serie.seasons = this.serieForm.get('seasons').value;
     this.serie.score = this.serieForm.get('score').value;
     this.serie.token = this.serieForm.get('token').value;
-    this.userService.addSerie(this.serie);
+    console.log(this.serie);
+    this.updateSerie();
+    this.serieForm.reset();
   }
-  b(): void{
+  agregar(): void{
     this.serie = null;
     this.serie = {
       name: this.serieForm.get('name').value,
@@ -70,14 +71,26 @@ export class SeriesComponent implements OnInit {
       score: this.serieForm.get('score').value,
       token: this.serieForm.get('token').value
     }
+    this.addSerie();
+    this.serieForm.reset();
+  }
+  addSerie(): void{
     this.userService.addSerie(this.serie).subscribe((data) => {
       this.response = data;
-      console.log(data);
+      this.getSeriesData();
       successDialog(this.response.message);
     }, (error: HttpErrorResponse) => {
       errorMessage(error.error.message);
-    }
-    );
+    });
+  }
+  updateSerie(): void{
+    this.userService.updateSerie(this.serie, this.serie.id).subscribe((data) => {
+      this.response = data;
+      this.getSeriesData();
+      successDialog(this.response.message);
+    }, (error: HttpErrorResponse) => {
+      errorMessage(error.error.message);
+    });
   }
   clearForm(): void {
     this.serie = null;

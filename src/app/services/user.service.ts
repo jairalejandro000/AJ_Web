@@ -28,4 +28,7 @@ export class UserService {
   addSerie(serie: Serie) {
     return this.http.post(`${this.apiUrl}Serie/create`, serie);
   }
+  updateSerie(serie: Serie, id: number) {
+    return this.http.put(`${this.apiUrl}Serie/update/${id}`, serie);
+  }
 }

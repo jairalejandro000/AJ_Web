@@ -21,8 +21,8 @@
             <mat-label>Token</mat-label>
             <input matInput formControlName="token">
         </mat-form-field>
-        <button mat-raised-button [disabled]="!serieForm.valid" (click)="serie != null ? a() : b()">
-            {{serie != null ?  'Actualizar': 'Guardar'}}
+        <button mat-raised-button [disabled]="!serieForm.valid" (click)="serie != null ? actualizar() : agregar()">
+            Guardar
         </button>
         <button mat-raised-button class="borrar" [disabled]="!serieForm.valid" (click)="clearForm()">Borrar</button>
     </form>
