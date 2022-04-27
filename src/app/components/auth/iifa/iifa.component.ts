@@ -56,13 +56,14 @@ export class IIFAComponent implements OnInit {
     this.response = data;
     if(this.response.token){
       if(this.user.rol == '3'){
-        this.ws = Ws('ws://localhost:3333', {
-        path: 'ws'
+        this.ws = Ws('ws://api.aj-proyecto.ga/', {
+        path: 'adonis-ws'
         });
         this.ws.connect();
         this.chat = this.ws.subscribe('chat');
         this.puedoPasar();
         this.chat.on('message', (data) => {
+          console.log(data);
           if(data.message == 'chi 🥺' && this.user.email == data.email){
             this.ws.close();
             this.authService.storageToken(this.response.token);
