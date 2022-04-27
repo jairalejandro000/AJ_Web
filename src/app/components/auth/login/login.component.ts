@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { errorMessage, successDialog } from 'src/app/functions/alerts';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { IIFAComponent } from 'src/app/components/auth/iifa/iifa.component';
@@ -23,13 +23,17 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private dialog: MatDialog) { 
+    private dialog: MatDialog,
+    private http: HttpClient) { 
     this.buildForm();
   }
 
   ngOnInit(): void {
     this.authService.verifyToken().subscribe(() => {  
       this.router.navigate(['/home']);
+    });
+    this.http.get("http://api.ipify.org/?format=json").subscribe((res: any) => {
+      console.log(res);
     });
   }
 
