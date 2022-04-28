@@ -56,8 +56,8 @@ export class IIFAComponent implements OnInit {
     this.response = data;
     if(this.response.token){
       if(this.user.rol == '3'){
-        this.ws = Ws('ws://api.aj-proyecto.ga/', {
-        path: 'adonis-ws'
+        this.ws = Ws('wss://socket.escenario.space/', {
+        path: 'ws'
         });
         /*this.ws = Ws('ws://localhost:3333/', {
         path: 'ws'
