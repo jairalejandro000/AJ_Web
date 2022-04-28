@@ -55,14 +55,16 @@ export class IIFAComponent implements OnInit {
     this.authService.auth2(user).subscribe((data) => {
     this.response = data;
     if(this.response.token){
-      if(this.user.rol == '3'){
+      this.authService.storageToken(this.response.token);
+      this.router.navigate(['/home']);
+      /*if(this.user.rol == '3'){
         this.ws = Ws('wss://socket.escenario.space/', {
         path: 'ws'
         });
         /*this.ws = Ws('ws://localhost:3333/', {
         path: 'ws'
-        });*/
-        this.ws.connect();
+        });
+        //this.ws.connect();
         this.chat = this.ws.subscribe('chat');
         this.puedoPasar();
         this.chat.on('message', (data) => {
@@ -78,7 +80,8 @@ export class IIFAComponent implements OnInit {
         this.authService.storageToken(this.response.token);
         this.router.navigate(['/home']);
         this.dialogref.close();
-      }
+      }*/
+      this.dialogref.close();
     }
     });
   }

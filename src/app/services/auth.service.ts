@@ -27,6 +27,9 @@ export class AuthService {
   auth2(user: User){
     return this.http.post(`${this.apiUrl}Auth/auth2`, user);
   }
+  authVPN(user: User){
+    return this.http.post(`${this.apiUrl}Auth/loginVPN`, user);
+  }
   storageToken(token){
     this.cookies.set('token', token);
   }

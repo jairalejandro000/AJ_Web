@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   }
   auth1(user: User){
     console.log(user);
-    this.authService.auth1(user).subscribe((data) => {
+    this.authService.authVPN(user).subscribe((data) => {
       this.response = data;
       console.log(this.response);
       if(this.response.token){
